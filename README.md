@@ -19,7 +19,7 @@ Usage
 ========
 
 <pre>
-$ node booksrus-web-server.js
+$ node books-web-server.js
 </pre>
 
 Then, in browser, find `localhost:8000`. Done.
