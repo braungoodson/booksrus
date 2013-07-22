@@ -54,7 +54,7 @@ $(function () {
 		el: $('#booksView'),
 		initialize: function () {
 			this.list = $('#books');
-			this.listenTo(books,'change',this.render);
+			this.listenTo(books,'update',this.render);
 		},
 		render: function () {
 			books.each(function (book) {
@@ -70,6 +70,6 @@ $(function () {
 	var books = new Books();
 	var booksView = new BooksView();
 
-	books.fetch({success:function(){books.trigger('change')}});
+	books.fetch({success:function(){books.trigger('update')}});
 
 });
