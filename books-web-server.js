@@ -37,7 +37,7 @@ callbacks.booksRUsRouter = function () {
 				break;
 			case '/getBooks' :
 				res.writeHead(200,new responses.json());
-				var books = { "BookList" : [
+				var books = { "Books" : [
 					{"title":"The Server-Side Of The Force","author":"Darth Braun"},
 					{"title":"Idioms for Idiots","author":"Garfunkle Knuckler"}
 				]};

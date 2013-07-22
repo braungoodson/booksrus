@@ -24,7 +24,7 @@ $(function () {
 			return this.where({checked:true});
 		},
 		parse: function (data) {
-			return data.BookList;
+			return data.Books;
 		}
 	});
 	
