@@ -17,7 +17,7 @@ $(function () {
 	});
 
 	//
-	var BookList = Backbone.Collection.extend({
+	var Books = Backbone.Collection.extend({
 		model: Book,
 		url: "/getBooks",
 		getChecked: function () {
@@ -33,9 +33,6 @@ $(function () {
 		tagName: 'li',
 		events: {
 			'click': 'toggleBook'
-		},
-		initialize: function () {
-			this.listenTo(this.model,'change',this.render);
 		},
 		render: function () {
 			var h = '';
@@ -53,12 +50,11 @@ $(function () {
 	});
 
 	//
-	var BookApp = Backbone.View.extend({
-		el: $('#main'),
+	var BooksView = Backbone.View.extend({
+		el: $('#booksView'),
 		initialize: function () {
 			this.list = $('#books');
 			this.listenTo(books,'change',this.render);
-			this.render();
 		},
 		render: function () {
 			books.each(function (book) {
@@ -70,8 +66,9 @@ $(function () {
 	});
 
 	//
-	var books = new BookList();
-	var a = new BookApp();
+	var books = new Books();
+	var booksView = new BooksView();
 
-	books.fetch({success:function(){a.render();}});
+	books.fetch({success:function(){books.trigger('change')}});
+
 });
