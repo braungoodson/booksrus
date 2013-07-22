@@ -61,6 +61,7 @@ $(function () {
 				var v = new BookView({model: book});
 				this.list.append(v.render().el);
 			},this);
+			$("#booksView").fadeIn(500);
 			return this;
 		}
 	});
